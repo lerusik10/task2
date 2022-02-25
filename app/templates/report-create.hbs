@@ -1,0 +1,80 @@
+<div class="container h-100">
+    <div class="htop">
+        <div class="border border-dark rounded p-4 mb-4">
+            <h2 class="text-center">Добавление доклада</h2>            
+            <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label text-right">Дата доклада</label>
+                <div class="col-sm-10">
+                    {{input-date meetingDate=meetingDateSearch}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label text-right">Спикер</label>
+                <div class="dropdown col-sm-10">
+                    <button class="btn btn-outline-secondary dropdown-toggle my-2 w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>Спикер...</span>
+                        <span class="caret"></span>
+                    </button>
+                    {{!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Фамилия имя</a>
+                        <a class="dropdown-item" href="#">Фамилия имя</a>
+                        <a class="dropdown-item" href="#">Фамилия имя</a>
+                    </div> --}}
+                    {{#power-select 
+                        options=model.speakers 
+                        selected=selectedAuthor 
+                        onChange=(action "changeAuthor")
+                        searchField="fullName"
+                        allowClear=true 
+                        as |speaker|}}
+                        <strong>{{speaker.LastName}} {{speaker.FirstName}} {{speaker.SecondName}}</strong>
+                    {{/power-select}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label text-right">Книга</label>
+                <div class="dropdown col-sm-10">
+                    <button class="btn btn-outline-secondary dropdown-toggle my-2 w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>Книга...</span>
+                        <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Название книги</a>
+                        <a class="dropdown-item" href="#">Название книги</a>
+                        <a class="dropdown-item" href="#">Название книги</a>
+                    </div>
+                </div>
+            </div>            
+            <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label text-right">Описание книги</label>
+                <div class="col-sm-10">
+                    {{input type="text" class="form-control form-control-lg" id="inputTitle" placeholder="Описание книги" value = model.review}}
+                </div>
+            </div>            
+            <div class="form-group row">
+                <label for="inputPagesCount" class="col-sm-2 col-form-label text-right">Оценка книги</label>
+                <div class="col-sm-10">
+                    {{input type="number" class="form-control form-control-lg" id="inputPagesCount" placeholder="Оценка книги" value = model.grade}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputDescriptionURL" class="col-sm-2 col-form-label text-right">Ссылка на видео</label>
+                <div class="col-sm-10">
+                    {{input type="url" class="form-control form-control-lg" id="inputDescriptionURL" placeholder="Ссылка на видео" value = model.urlVideo}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputDescriptionURL" class="col-sm-2 col-form-label text-right">Ссылка на презентацию</label>
+                <div class="col-sm-10">
+                    {{input type="url" class="form-control form-control-lg" id="inputDescriptionURL" placeholder="Ссылка на презентацию" value = model.urlPresentation}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg">Сохранить</button>
+                {{#link-to "create-meeting" class="btn btn-outline-secondary btn-lg"}}Отмена{{/link-to}}
+            </div>
+        </div>
+    </div>
+</div>
