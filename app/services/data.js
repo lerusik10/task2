@@ -2,7 +2,7 @@ import Service from '@ember/service';
 import ENV from 'task2/config/environment';
 import { A } from '@ember/array';
 
-export default Service.extendextend ({
+export default Service.extend ({
   init() {
     this._super(...arguments);    
     this.set('speakers', A());
@@ -10,7 +10,7 @@ export default Service.extendextend ({
   },
 
   async readSpeakers(search) {
-    let queryParams = "";
+    let queryParams = '';
     if (search) {
       queryParams = `?q=${search}`;
     }      
@@ -59,7 +59,7 @@ export default Service.extendextend ({
     // const response = await fetch(`${ENV.backendURL}/books`);
     // return response.json();
     
-    let queryParams = "";
+    let queryParams = '';
     if (search && tagSearch) {
       queryParams = `?q=${search}&tags_like=${tagSearch}`;
     }
@@ -94,7 +94,7 @@ export default Service.extendextend ({
     });
   },*/
 
-  async saveBook(book, uploadData, bookNew) {
+  async saveBook(book, uploadData, bNew) {
     return new Promise(async (resolve, reject) => {
       try {
         /*const savedBookPromise = await fetch(`${ENV.backendURL}/books${bNew === true ? '' : '/' + book.id}`, {
@@ -105,7 +105,7 @@ export default Service.extendextend ({
           body: JSON.stringify(book)
         });*/         
 
-        const savedBook = await savedBook.Promise.json();
+        const savedBook = await savedBookPromise.json();
 
         if (!uploadData) {
           resolve();
