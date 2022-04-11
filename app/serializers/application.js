@@ -32,11 +32,10 @@ export default DS.JSONSerializer.extend({
     },
   
     extractRelationship (relationshipModelName, relationshipHash) {
-      // Так делаем из-за того, что нас не устраивает задавать атрибут type и хранить его на сервере. 
-      // Подменяем hash на id, таким образом ember type сам определяет - берет из метаданных имя модели.
-      /* let hash = relationshipHash.id ? relationshipHash.id : relationshipHash;
-      return this._super.call(this, relationshipModelName, hash); */
-      return this._super(...arguments);
+      
+      let hash = relationshipHash.id ? relationshipHash.id : relationshipHash;
+      return this._super.call(this, relationshipModelName, hash);
+      /*return this._super(...arguments);*/
     },
   
     serializeBelongsTo(snapshot, json, relationship) {
