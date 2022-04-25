@@ -16,8 +16,18 @@ export default Component.extend({
         }
     },
 
-    didReceiveAttrs() {
-        this._super(...arguments);
+    async deleteReport(report) {
+        
+        this.onDeleteReport(report);
+    },
+
+    addReport() {
+        this.onAddReport();
+    },
+
+
+didReceiveAttrs() {
+    this._super(...arguments);
 
         this.setProperties ({
             idMeeting: this.get('meeting.id') ? this.get('meeting.id') : undefined,

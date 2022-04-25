@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+
 export const PER_PAGE = 2;
 
 export default Controller.extend({

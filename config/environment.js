@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'task2',
     environment,
     rootURL: '/',
+    backendURL: 'http://localhost:3000',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -20,8 +21,19 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    'ember-simple-auth-token': {
+      serverTokenEndpoint: 'http://localhost:3000/token',
+      refreshAccessTokens: false
+    },
+    'ember-cli-google': {
+      recaptcha: {
+        siteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      }
     }
   };
+  
+  ENV.fileUploadURL = ENV.backendURL + '/FileUpload';
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
