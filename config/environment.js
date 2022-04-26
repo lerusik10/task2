@@ -29,6 +29,10 @@ module.exports = function(environment) {
     'ember-cli-google': {
       recaptcha: {
         siteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      },
+
+      i18n:{
+        defaultLocale: 'en'
       }
     }
   };

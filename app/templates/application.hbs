@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 	{{#link-to "index" class="navbar-brand"}}
 		<img src="/images/logo-dark.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-		Книжный клуб
+		{{t "menu.name"}}
 	{{/link-to}}
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
 		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Открыть меню">
@@ -10,34 +10,34 @@
 	<div class="collapse navbar-collapse" id="navbarContent">
 		<ul class="nav navbar-nav navigation-main">
 			<li class="nav-item active">
-				{{#link-to "index" class="nav-link"}}Рабочий стол <span class="sr-only">(текущий)</span>{{/link-to}}
+				{{#link-to "index" class="nav-link"}}{{t "menu.desktop"}} <span class="sr-only">({{t "menu.current"}})</span>{{/link-to}}
 			</li>
 			<li class="nav-item">
-				{{#link-to "meeting" class="nav-link"}}Встречи клуба{{/link-to}}
+				{{#link-to "meeting" class="nav-link"}}{{t "menu.meetings"}}{{/link-to}}
 			</li>
 			<li class="nav-item">
-				{{#link-to "book" class="nav-link"}}Книги{{/link-to}}
+				{{#link-to "book" class="nav-link"}}{{t "menu.books"}}{{/link-to}}
 			</li>
 			<li class="nav-item">
-				{{#link-to "speaker" class="nav-link"}}Спикеры{{/link-to}}
+				{{#link-to "speaker" class="nav-link"}}{{t "menu.speakers"}}{{/link-to}}
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-success" href="#">Оставить заявку</a>
+				<a class="nav-link text-success" href="#">{{t "menu.desktop"}}</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-primary" href="#">Запланировать</a>
+				<a class="nav-link text-primary" href="#">{{t "menu.plan"}}</a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav">
 			{{#if session.isAuthenticated}}
 				<li class="nav-item nav-link"><strong>{{currentUser.user.email}}</strong></li>				
-				<li class="nav-item nav-link"><a href="#" onclick={{action "logout"}}>Выйти</a></li>
+				<li class="nav-item nav-link"><a href="#" onclick={{action "logout"}}>{{t "menu.comeout"}}</a></li>
 			{{else}}
 				<li class="nav-item">
-					{{#link-to "login"  class="nav-link"}}Войти{{/link-to}}
+					{{#link-to "login"  class="nav-link"}}{{t "menu.login"}}{{/link-to}}
 				</li>
 				<li class="nav-item">
-					{{#link-to "register"  class="nav-link"}}Зарегистрироваться{{/link-to}}
+					{{#link-to "register"  class="nav-link"}}{{t "menu.register"}}{{/link-to}}
 				</li>
 			{{/if}}
 		</ul>

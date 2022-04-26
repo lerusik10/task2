@@ -7,18 +7,33 @@
         {{#each errors.email as |error|}}
             <span class="error-message">{{error.message}}</span>
         {{/each}}
+        {{#if (v-get this 'email' 'isInvalid')}}
+            <span class="error-message">
+                {{v-get this 'email' 'message'}}
+            </span>
+        {{/if}}
     </div>
     <div class="form-floating">
         {{input type="password" class="form-control" id="floatingPassword" placeholder="Пароль" value=password}}
         {{#each errors.email as |error|}}
             <span class="error-message">{{error.message}}</span>
         {{/each}}
+        {{#if (v-get this 'password' 'isInvalid')}}
+            <span class="error-message">
+                {{v-get this 'password' 'message'}}
+            </span>
+        {{/if}}
     </div>
     <div class="form-floating">
         {{input type="password" class="form-control" id="floatingPasswordConfirmation" placeholder="Подтверждение пароля" value=passwordConfirmation}}
         {{#each errors.email as |error|}}
             <span class="error-message">{{error.message}}</span>
         {{/each}}
+        {{#if (v-get this 'passwordConfirmition' 'isInvalid')}}
+            <span class="error-message">
+                {{v-get this 'passwordConfirmition' 'message'}}
+            </span>
+        {{/if}}
     </div>
     <div class="field">
         {{g-recaptcha-v2
