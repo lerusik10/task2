@@ -27,6 +27,13 @@
 			<li class="nav-item">
 				<a class="nav-link text-primary" href="#">{{t "menu.plan"}}</a>
 			</li>
+			{{flexberry-dropdown
+            class="compact"
+            items=locales
+            value=i18n.locale
+            placeholder=(t "language-dropdown.placeholder")
+            direction="upward"
+          }}
 		</ul>
 		<ul class="nav navbar-nav">
 			{{#if session.isAuthenticated}}

@@ -33,7 +33,9 @@ export default {
     onOrBefore: '{{description}} must be on or before {{onOrBefore}}',
     email: "{{description}} must be a valid email address",
     phone: "{{description}} must be a valid phone number",
-    url: "{{description}} must be a valid url"
+    url: "{{description}} must be a valid url",
+    passwordDescription: "Password and password confirmation",
+    passwordDoNotMatch: "{{description}} do not match"
   },
   menu: {
     books: 'Books',
@@ -47,5 +49,9 @@ export default {
     desktop: "Desktop",
     current: "current",
     name: "Book Club"
-  }
+  },
+  'language-dropdown': {
+    'caption': 'Application language',
+    'placeholder': 'Choose language'
+  },
 };

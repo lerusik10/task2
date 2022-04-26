@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import {get, computed} from '@ember/object';
 import {inject as service } from '@ember/service';
 import {validator, buildValidations} from 'ember-cp-validations';
+import { translationMacro as t } from "ember-i18n";
 
 const validations = buildValidations({
     role: validator('presence', true),
@@ -20,8 +21,14 @@ const validations = buildValidations({
         validator('presence', true),
         validator('confirmation', {
             on: 'password',
-            message: '{description} do not match',
-            description: 'Password and password confirmation'
+            message: computed('model.passwordConfirmation', 'model.i18n.locale', function() {
+                return get(this, 'model.i18n').t('errors.passwordDoNotMatch')
+                
+            }),
+            /*'{description} do not match',*/
+            description:  computed('model.passwordConfirmation', 'model.i18n.locale', function() {
+                return '{description}' + get(this, 'model.i18n').t('errors.passwordDescription')
+            }),
         })
     ]
 })
